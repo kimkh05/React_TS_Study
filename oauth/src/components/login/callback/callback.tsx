@@ -1,30 +1,32 @@
-import { useEffect } from "react";
-import qs from "qs";
+// import { useEffect } from "react";
+// import qs from "qs";
 
-const Callback: React.FC = ({ history, location }) => {
-  const authurl = "백엔드와 협의된 URL";
+// const Callback: React.FC = ({ history, location }) => {
+//   const authurl = "백엔드와 협의된 URL";
 
-  useEffect(() => {
-    const getToken = async () => {
-      const { code } = qs.parse(location.search, {
-        ignoreQueryPrefix: true,
-      });
+//   useEffect(() => {
+//     const getToken = async () => {
+//       const { code } = qs.parse(location.search, {
+//         ignoreQueryPrefix: true,
+//       });
 
-      try {
-        const response = await fetch(`${authurl}?code=${code}`);
-        const data = await response.json();
+//       try {
+//         const response = await fetch(`${authurl}?code=${code}`);
+//         const data = await response.json();
 
-        localStorage.setItem("token", data.jwt);
-        localStorage.setItem("ProfileURL", data.avatar_url);
+//         localStorage.setItem("token", data.jwt);
+//         localStorage.setItem("ProfileURL", data.avatar_url);
 
-        history.push("/");
-      } catch (error) {}
-    };
+//         history.push("/");
+//       } catch (error) {}
+//     };
 
-    getToken();
-  }, [location, history, authurl]);
+//     getToken();
+//   }, [location, history, authurl]);
 
-  return <></>;
-};
+//   return <></>;
+// };
 
-export default Callback;
+// export default Callback;
+
+export {};
