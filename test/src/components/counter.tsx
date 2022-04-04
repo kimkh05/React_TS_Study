@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as S from './styles';
 
 const Counter: React.FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -7,13 +8,13 @@ const Counter: React.FC = () => {
     count < 0 ? setCount(count - 1) : setCount(count);
   };
   return (
-    <div>
+    <S.div>
       <h1>{count}</h1>
       <div>
         <button onClick={increase}>+</button>
         <button onClick={decrease}>-</button>
       </div>
-    </div>
+    </S.div>
   );
 };
 
