@@ -1,3 +1,3 @@
-# OAuth_Study
-OAuth를 이용하여 로그인 구현<br />
-(블로그 참고)
+# Tsx_Study
+React.ts 연습 하는 곳<br />
+(블로그 참고도 함)
