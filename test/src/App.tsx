@@ -1,11 +1,13 @@
 import React from "react";
-import Counter from "./components/counter";
 import "./App.css";
+import Search from "./components/Search/search";
+import { GlobalStyle } from "./style/globalStyle";
 
 const App: React.FC = () => {
   return (
     <>
-      <Counter />
+      <GlobalStyle />
+      <Search />
     </>
   );
 };
