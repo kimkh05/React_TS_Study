@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { S } from "./styles";
 import { SearchData } from "../../constance/Search/index";
 import NotInput from "../notInput/notInput";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 interface SearchData {
   name: string;
@@ -18,6 +19,9 @@ function Search() {
 
   useEffect(() => {
     setArr(SearchData);
+    input === null || input === undefined
+      ? setCheck(false)
+      : console.log("Yeah");
   }, [arr]);
 
   const change = (e: any) => {
@@ -41,17 +45,19 @@ function Search() {
   return (
     <>
       <S.Wrapper>
-        <S.Input
-          onKeyPress={onEnter}
-          placeholder="검색어"
-          onChange={change}
-          value={input}
-        />
+        <S.InputDiv>
+          <S.Input
+            onKeyPress={onEnter}
+            placeholder="검색어를 입력하세요."
+            onChange={change}
+            value={input}
+          />
+        </S.InputDiv>
         <S.Button onClick={click}>
           <span>Click Me!</span>
         </S.Button>
         <S.Ul>
-          {arr?.map((value, page) => {
+          {/* {arr?.map((value, page) => {
             // 처음 값은 undefined이므로 ?를 붙인다.
             return check === true ? (
               input === value.name || input === value.date ? (
@@ -63,7 +69,19 @@ function Search() {
             ) : (
               <NotInput />
             );
-          })}
+          })} */}
+          {check === true ? (
+            arr?.map((index, page) => {
+              return input === index.name || input === index.date ? (
+                <S.List key={page}>
+                  <span className="title">{index.name}</span>
+                  <span className="date">{index.date}</span>
+                </S.List>
+              ) : setCheck(false);
+            })
+          ) : (
+            <NotInput />
+          )}
         </S.Ul>
       </S.Wrapper>
     </>

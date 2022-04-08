@@ -13,10 +13,21 @@ export const S = {
   Input: styled.input`
     width: 400px;
     height: 40px;
-    border: 1px solid black;
-    margin-bottom: 10px;
     border-radius: 10px;
+    &:focus{
+      outline: none;
+    }
+  `,
+  InputDiv: styled.div`
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
     margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
   `,
   Button: styled.div`
     width: 100px;
