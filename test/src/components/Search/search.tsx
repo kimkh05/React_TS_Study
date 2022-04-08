@@ -77,7 +77,9 @@ function Search() {
                   <span className="title">{index.name}</span>
                   <span className="date">{index.date}</span>
                 </S.List>
-              ) : setCheck(false);
+              ) : (
+                setCheck(false)
+              );
             })
           ) : (
             <NotInput />
