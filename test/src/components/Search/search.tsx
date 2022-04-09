@@ -18,6 +18,7 @@ function Search() {
 
   useEffect(() => {
     setArr(SearchData);
+    console.log(SearchData);
   }, [arr]);
 
   const change = (e: any) => {
@@ -67,15 +68,13 @@ function Search() {
             );
           })} */}
           {check === true ? (
-            arr?.map((index, page) => {
-              return input === index.name || input === index.date ? (
+            arr?.map((value, page) => {
+              return input === value.name || input === value.date ? (
                 <S.List key={page}>
-                  <span className="title">{index.name}</span>
-                  <span className="date">{index.date}</span>
+                  <span className="title">{value.name}</span>
+                  <span className="date">{value.date}</span>
                 </S.List>
-              ) : (
-                setCheck(false)
-              );
+              ) : null;
             })
           ) : (
             <NotInput />
