@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { S } from "./styles";
 import { SearchData } from "../../constance/Search/index";
 import NotInput from "../notInput/notInput";
-import { getValue } from "@testing-library/user-event/dist/utils";
 
 interface SearchData {
   name: string;
@@ -19,9 +18,6 @@ function Search() {
 
   useEffect(() => {
     setArr(SearchData);
-    input === null || input === undefined
-      ? setCheck(false)
-      : console.log("Yeah");
   }, [arr]);
 
   const change = (e: any) => {
