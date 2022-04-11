@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as S from "./styles";
 import { SearchData } from "../../constance/Search/index";
 import NotInput from "../notInput/notInput";
+import { Link } from "react-router-dom";
 
 interface SearchData {
   name: string;
@@ -10,7 +11,7 @@ interface SearchData {
 
 interface EnumServiceItems extends Array<SearchData> {}
 
-const Search:React.FC = () => {
+const Search: React.FC = () => {
   const [arr, setArr] = useState<EnumServiceItems>();
   const [input, setInput] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
@@ -24,25 +25,21 @@ const Search:React.FC = () => {
   }, [arr]);
 
   const change = (e: any) => {
-    if(input === null || input === "") {
+    e.preventDefault();
+    if (input === null || input === "") {
       setCheck(false);
     }
     setInput(e.target.value);
   };
 
-  const onEnter = (e: any) => {
-    if (e.key === "Enter") {
-      console.log("Click enter");
-      setCheck(true);
-      click();
-    }
-  };
-
-  const click = () => {
+  const click = (e: any) => {
     console.log("input 값 : " + input);
     console.log("받아오는 데이터의 배열 : " + arr);
+    if (e.key === "Enter") {
+      console.log("Click Enter Key!");
+      setCheck(true);
+    }
     setCount(count + 1);
-
   };
 
   return (
@@ -50,7 +47,7 @@ const Search:React.FC = () => {
       <S.Wrapper>
         <S.InputDiv>
           <S.Input
-            onKeyPress={onEnter}
+            onKeyPress={click}
             placeholder="검색어를 입력하세요."
             onChange={change}
             value={input}
@@ -76,10 +73,12 @@ const Search:React.FC = () => {
           {check === true ? (
             arr?.map((value, page) => {
               return input === value.name || input === value.date ? (
-                <S.List key={page}>
-                  <span className="title">{value.name}</span>
-                  <span className="date">{value.date}</span>
-                </S.List>
+                <Link to={`/link/${value.name}`} style={{ textDecoration: "none"}}>
+                  <S.List key={page}>
+                    <span className="title">{value.name}</span>
+                    <span className="date">{value.date}</span>
+                  </S.List>
+                </Link>
               ) : null;
             })
           ) : (
@@ -89,6 +88,6 @@ const Search:React.FC = () => {
       </S.Wrapper>
     </>
   );
-}
+};
 
 export default Search;

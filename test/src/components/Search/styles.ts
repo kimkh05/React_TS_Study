@@ -72,6 +72,13 @@ export const List = styled.div`
   align-items: center;
   margin-bottom: 15px;
   cursor: pointer;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
   .title {
     font-size: 24px;
     font-weight: bold;
@@ -80,9 +87,12 @@ export const List = styled.div`
     height: 25px;
     white-space: nowrap;
     overflow: hidden;
+    color: black;
+    text-decoration: none;
   }
   .date {
     font-size: 14px;
     color: #8888;
+    text-decoration: none;
   }
 `;
