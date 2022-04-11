@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import UserRouter from "./router/UserRouter";
 import { GlobalStyle } from "./style/globalStyle";
 
