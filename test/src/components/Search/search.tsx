@@ -73,7 +73,7 @@ const Search: React.FC = () => {
           {check === true ? (
             arr?.map((value, page) => {
               return input === value.name || input === value.date ? (
-                <Link to={`/link/${value.name}`} style={{ textDecoration: "none"}}>
+                <Link to={`/list/${value.name}`} style={{ textDecoration: "none"}}>
                   <S.List key={page}>
                     <span className="title">{value.name}</span>
                     <span className="date">{value.date}</span>
