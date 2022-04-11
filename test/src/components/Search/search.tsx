@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { S } from "./styles";
+import * as S from "./styles";
 import { SearchData } from "../../constance/Search/index";
 import NotInput from "../notInput/notInput";
 
@@ -10,7 +10,7 @@ interface SearchData {
 
 interface EnumServiceItems extends Array<SearchData> {}
 
-function Search() {
+const Search:React.FC = () => {
   const [arr, setArr] = useState<EnumServiceItems>();
   const [input, setInput] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
@@ -19,9 +19,14 @@ function Search() {
   useEffect(() => {
     setArr(SearchData);
     console.log(SearchData);
+    input === null || input === "" ? setCheck(false) : setCheck(true);
+    console.log(check);
   }, [arr]);
 
   const change = (e: any) => {
+    if(input === null || input === "") {
+      setCheck(false);
+    }
     setInput(e.target.value);
   };
 
@@ -37,6 +42,7 @@ function Search() {
     console.log("input 값 : " + input);
     console.log("받아오는 데이터의 배열 : " + arr);
     setCount(count + 1);
+
   };
 
   return (
@@ -51,7 +57,7 @@ function Search() {
           />
         </S.InputDiv>
         <S.Button onClick={click}>
-          <span>Click Me!</span>
+          <span>검색</span>
         </S.Button>
         <S.Ul>
           {/* {arr?.map((value, page) => {
