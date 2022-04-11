@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import Search from "./components/Search/search";
+import UserRouter from "./router/UserRouter";
 import { GlobalStyle } from "./style/globalStyle";
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <Search />
+      <UserRouter />
     </>
   );
 };
