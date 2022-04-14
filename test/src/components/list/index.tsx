@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import * as S from "./styles";
-import { SearchData } from "../../constance/Search";
+import qs from 'qs';
 
-const List: React.FC = ({ props }: any) => {
-  console.log(props);
+const List: React.FC = ({location}:  any) => {
+  console.log(location);
   return (
     <>
       <S.Wrapper>
@@ -17,7 +17,7 @@ const List: React.FC = ({ props }: any) => {
               </div>
             ) : null;
           })} */}
-          <S.Title>Hello World!</S.Title>
+          <S.Title>Hello World</S.Title>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <S.Line />
           </div>

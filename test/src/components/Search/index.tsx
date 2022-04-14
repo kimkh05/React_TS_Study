@@ -3,15 +3,18 @@ import * as S from "./styles";
 import { SearchData } from "../../constance/Search/index";
 import NotInput from "../notInput/notInput";
 import { Link } from "react-router-dom";
+import SList from "./SearchList";
 
 interface SearchData {
   name: string;
   date: string;
+  text: string;
+  id: number;
 }
 
 interface EnumServiceItems extends Array<SearchData> {}
 
-const Search: React.FC = () => {
+const Search = () => {
   const [arr, setArr] = useState<EnumServiceItems>();
   const [input, setInput] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
@@ -19,9 +22,7 @@ const Search: React.FC = () => {
 
   useEffect(() => {
     setArr(SearchData);
-    console.log(SearchData);
     input === null || input === "" ? setCheck(false) : setCheck(true);
-    console.log(check);
   }, [arr]);
 
   const change = (e: any) => {
@@ -33,8 +34,6 @@ const Search: React.FC = () => {
   };
 
   const click = (e: any) => {
-    console.log("input 값 : " + input);
-    console.log("받아오는 데이터의 배열 : " + arr);
     if (e.key === "Enter") {
       console.log("Click Enter Key!");
       setCheck(true);
@@ -71,16 +70,18 @@ const Search: React.FC = () => {
             );
           })} */}
           {check === true ? (
-            arr?.map((value, page) => {
+            arr?.map((value, index) => {
               return input === value.name || input === value.date ? (
                 <Link
                   to={`/list/${value.name}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <S.List key={page}>
-                    <span className="title">{value.name}</span>
-                    <span className="date">{value.date}</span>
-                  </S.List>
+                  <SList
+                    key={index}
+                    id={value.id}
+                    name={value.name}
+                    date={value.date}
+                  />
                 </Link>
               ) : null;
             })
