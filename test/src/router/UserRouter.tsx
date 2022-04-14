@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import List from "../components/list/list";
-import Search from "../components/Search/search";
-import ErrorPage from "../components/ErrorPage/errorPage";
+import List from "../components/list/index";
+import Search from "../components/Search/index";
+import ErrorPage from "../components/ErrorPage/index";
 
 const UserRouter: React.FC = () => {
   return (
