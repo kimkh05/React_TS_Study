@@ -56,21 +56,9 @@ const Search = () => {
           <span>검색</span>
         </S.Button>
         <S.Ul>
-          {/* {arr?.map((value, page) => {
-            // 처음 값은 undefined이므로 ?를 붙인다.
-            return check === true ? (
-              input === value.name || input === value.date ? (
-                <S.List key={page}>
-                  <span className="title">{value.name}</span>
-                  <span className="date">{value.date}</span>
-                </S.List>
-              ) : null
-            ) : (
-              <NotInput />
-            );
-          })} */}
           {check === true ? (
             arr?.map((value, index) => {
+              // 처음 값은 undefined이므로 ?를 붙인다.
               return input === value.name || input === value.date ? (
                 <Link
                   to={`/list/${value.name}`}
