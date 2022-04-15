@@ -1,20 +1,13 @@
-import React, { useEffect } from "react";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import * as S from "./styles";
-import qs from "qs";
 import { useParams } from "react-router";
-
-interface MatchProps {
-  name: string;
-  date: string;
-  text: string;
-}
 
 const List: React.FC = () => {
   const { name } = useParams();
   const { date } = useParams();
   const { text } = useParams();
-  console.log(name, date, text);
+  console.log("넘어오는 변수들", name, date, text);
   return (
     <>
       <S.Wrapper>

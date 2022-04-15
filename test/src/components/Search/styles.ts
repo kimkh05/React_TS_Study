@@ -29,7 +29,6 @@ export const InputDiv = styled.div`
   margin-top: 100px;
   border: 1px solid black;
   border-radius: 10px;
-  margin-bottom: 20px;
 `;
 
 export const Button = styled.div`
@@ -39,6 +38,7 @@ export const Button = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  margin-top: 10px;
   background: #1a73e8;
   cursor: pointer;
   color: white;
