@@ -9,7 +9,7 @@ const UserRouter: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/list/:name" element={<List />} />
+        <Route path="/list/:name/:date/:text" element={<List />} />
         <Route path="/error" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

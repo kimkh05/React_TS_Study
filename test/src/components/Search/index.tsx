@@ -61,7 +61,7 @@ const Search = () => {
               // 처음 값은 undefined이므로 ?를 붙인다.
               return input === value.name || input === value.date ? (
                 <Link
-                  to={`/list/${value.name}`}
+                  to={`/list/${value.name}/${value.date}/${value.text}`}
                   style={{ textDecoration: "none" }}
                 >
                   <SList
@@ -69,6 +69,7 @@ const Search = () => {
                     id={value.id}
                     name={value.name}
                     date={value.date}
+                    text={value.text}
                   />
                 </Link>
               ) : null;
